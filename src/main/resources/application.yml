@@ -1,0 +1,23 @@
+server:
+  port: 8500
+
+spring:
+  cloud:
+    stream:
+      defaultBinder: kafka
+      kafka:
+        binder:
+          brokers: localkafka:9092
+      bindings:
+        usage-detail-in:
+          binder: kafka
+          destination: usage-detail
+          contentType: application/json
+        usage-detail-out:
+          binder: kafka
+          destination: usage-detail
+          contentType: application/json
+
+logging:
+  level:
+    root: INFO
